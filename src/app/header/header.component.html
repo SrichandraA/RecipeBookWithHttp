@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" >Recipe Book</a>
+
+      <ul class="navbar-nav">
+          <ng-template [ngIf]="valid">
+        <li class="nav-item" >
+          <a class="nav-link" routerLink="/recipes">Recipes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+        </li>
+      </ng-template>
+        <ng-template [ngIf]="!valid">
+        <li class="nav-item" routerLinkActive="active" >
+          <a class="nav-link" routerLink="/signup">Register</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" >
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+        <ng-template [ngIf]="valid">
+
+        <li class="nav-item" >
+          <div ngbDropdown>
+            <button class="btn btn btn-light nav-link" id="dropdownConfig" ngbDropdownToggle>Manage</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+              <button style="cursor:pointer;" class="dropdown-item" type="button" (click)="onSaveData()">Save data</button>
+              <button style="cursor:pointer;" class="dropdown-item" type="button" (click)="onFetchData()">Fetch data</button>
+            </div>
+          </div>
+         </li>
+         <li class="nav-item" routerLinkActive="active" >
+            <a class="nav-link" (click)="onLogout()">Logout</a>
+          </li>
+                 </ng-template>
+
+        
+      </ul>
+  </nav>
+  <p></p>
+  
